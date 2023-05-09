@@ -109,7 +109,7 @@ def get_psu_labels(logits, pseudo_labels, idx_train, idx_test, k=30, append_idx=
     if append_idx:
         idx_train = idx_train
     else:
-        idx_train = np.array([])
+        idx_train = np.array([], dtype='int64')
     pred_labels = torch.argmax(logits, dim=1)
     pred_labels_test = pred_labels[idx_test]
     for label in range(pseudo_labels.max().item() + 1):
