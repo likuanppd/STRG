@@ -48,11 +48,11 @@ batch_size = 64
 
 # dataloaders
 train_dataset = Data.TensorDataset(features[idx_train], labels[idx_train])
-train_loader = Data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+train_loader = Data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 val_dataset = Data.TensorDataset(features[idx_val], labels[idx_val])
-val_loader = Data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
+val_loader = Data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 test_dataset = Data.TensorDataset(features[idx_test], labels[idx_test])
-test_loader = Data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
+test_loader = Data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 model = MLP(features.shape[1], n_class, n_hidden)
 model = model.to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
